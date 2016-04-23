@@ -1,0 +1,27 @@
+﻿<Window x:Class="TP3.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="455.522" Width="600"
+        xmlns:local="clr-namespace:TP3">
+    <Window.CommandBindings>
+        <CommandBinding Command="{x:Static local:CustomCommands.Exit}" CanExecute="ExitCommand_CanExecute" Executed="ExitCommand_Executed" />
+        <CommandBinding Command="{x:Static local:CustomCommands.Import}" CanExecute="ImportCommand_CanExecute" Executed="ImportCommand_Executed" />
+        <CommandBinding Command="{x:Static local:CustomCommands.Delete}" CanExecute="DeleteCommand_CanExecute" Executed="DeleteCommand_Executed"/>
+    </Window.CommandBindings>
+    
+    
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="File">
+                <MenuItem Header="Import" Command="local:CustomCommands.Import"></MenuItem>
+                <MenuItem Header="Quit" Command="local:CustomCommands.Exit"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Edit">
+                <MenuItem Header="Delete" Command="local:CustomCommands.Delete"></MenuItem>
+            </MenuItem>
+        </Menu>
+        <local:AlbumCanvas x:Name="albumCanvas" Background="White" ClipToBounds="True">
+            
+        </local:AlbumCanvas>
+    </DockPanel>
+</Window>
